@@ -1,0 +1,189 @@
+.setting-container{
+  margin: 20px;
+  display: flex;
+  justify-content:space-between;
+}
+/* .example-card{
+background-color: rgb(244, 253, 244);
+}
+mat-card-title{
+  font-weight: 500;
+  color: rgb(94, 154, 233);
+  font-family: cursive;
+
+} */
+.heading-container h2{
+
+  margin-bottom: 20px;
+  width: 250px;
+  text-align: start;
+  font-size: 26px;
+  color: rgb(80, 76, 76);
+  border-bottom: 1px solid  rgb(94, 154, 233);;
+  font-family:cursive;
+}
+.heading-container h4{
+
+  font-size: 20px;
+  width: 320x;
+  text-align: start;
+  color: rgb(80, 76, 76);
+}
+.heading-container span{
+  margin-right: 10px;
+  color: black;
+  font-family: cursive;
+}
+.add-form h2,.edit-question h2,.from-section h2{
+  margin-top: 50px;
+  margin-left: 10px;
+  font-family:cursive;
+  font-size: 20px;
+}
+mat-form-field{
+ width: 280px;
+}
+.question-display,.question-add-edit,.employee-display{
+  margin: 40px 0 0 40px;
+}
+.add-edit-section-card{
+  margin: 20px;
+ border: 1px dashed royalblue;
+}
+.emp-section-card{
+  margin: 10px;
+  border: 1px dashed royalblue;
+}
+
+.addemp-section{
+  padding: 10px;
+  height: 70%;
+}
+.questions-list ul{
+  font-family:cursive;
+  font-size: 16px;
+list-style:circle;
+
+}
+.question-header{
+  margin-bottom: 40px;
+
+}
+.questions-list h2,.question-header h2,.employee-display h2{
+  width: 200px;
+  font-size: 26px;
+  color: rgb(80, 76, 76);
+  border-bottom: 1px solid  rgb(94, 154, 233);
+  font-family:cursive;
+}
+.questions-list li{
+margin-bottom: 5px;
+color: rgb(83, 82, 82);
+}
+.question-display{
+  margin-right: 5px;
+  width: 400px;
+}
+
+.employee-display{
+  margin-right: 10px;
+  width: 400px;
+}
+.employee-list{
+  margin-top: 40px;
+}
+.employee-list li{
+  margin-bottom: 5px;
+color: rgb(83, 82, 82);
+}
+.employee-list ul{
+  font-family:cursive;
+  font-size: 16px;
+list-style:circle;
+}
+.question-add-edit{
+  width: 400px;
+}
+.heading-container{
+  width: 100%;
+  text-align: center;
+  margin: 10px;
+}
+.quesion-input{
+  margin-left: 20px;
+}
+.addemployee-mode{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+button{
+  background-color:  #2691d9;
+  color: white;
+  margin: 5px;
+}
+.example-container {
+  width: 100%;
+  height: 200px;
+  margin: 10px;
+
+}
+/* The side navigation menu */
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a.active {
+  background-color: rgb(101, 187, 221);
+  color: white;
+  border: 1px solid royalblue;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 100%px;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}

@@ -1,0 +1,50 @@
+<div class="container">
+  <h1>SignUp</h1>
+
+  <form [formGroup]="SignupForm" (ngSubmit)="onSubmit()">
+
+
+    <!-- <div class="signup-type">
+      <div>
+        <input (change)="onUserType($event)" type="radio" name="userRole"  value="Employer">
+      <label for="">Employer</label>
+      </div>
+      <div>
+        <input type="radio" (change)="onUserType($event)" name="userRole" value="Employee">
+      <label for="">Employee</label>
+      </div>
+     </div>
+     <div class="role-error" *ngIf="roleMsgFlage">
+       {{ErrorMessage}}
+     </div> -->
+    <div class="text-field">
+      <input formControlName="email" placeholder="Email" type="email">
+      <span></span>
+
+    </div>
+
+    <div class="error-msg-input" *ngIf="SignupForm.get('email')?.invalid && SignupForm.get('email')?.touched ">Invalid Email</div>
+
+    <div class="text-field">
+      <input formControlName="name" placeholder="UserName" type="text">
+      <span></span>
+
+    </div>
+    <div class="error-msg-input" *ngIf="SignupForm.get('name')?.invalid && SignupForm.get('name')?.touched ">Name can't be empty</div>
+
+    <div class="text-field">
+      <input formControlName="password" placeholder="Password" type="password" >
+      <span></span>
+
+         </div>
+         <div class="error-msg-input" *ngIf="SignupForm.get('password')?.invalid && SignupForm.get('password')?.touched ">Invalid Email</div>
+         <div class="exist-user">
+          <h2  *ngIf="isUserExist">{{userExist}}</h2>
+        </div>
+    <input type="submit" value="SignUp">
+    <div class="signup-link">
+      Already have account ? <a [routerLink]="['/login']"  >Login</a>
+    </div>
+
+  </form>
+</div>

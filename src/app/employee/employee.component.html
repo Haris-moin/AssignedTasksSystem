@@ -1,0 +1,38 @@
+<div class="employee-container">
+  <div class="card-container">
+    <mat-card>
+      <div class="team-heading">
+        <h2>Team Name</h2>
+      </div>
+     <div *ngIf="isQuesAvailable" class="displayIfQuestions">
+      <div *ngIf="form" class="quesions-list" >
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+         <ul formArrayName="answers" *ngFor="let empQues of questions.controls; let i= index;">
+           <li [formGroupName]="i">
+             <div class="questions">{{employeeQues[i]}}</div>
+             <div class="answers"  >
+               <mat-form-field appearance="fill">
+                 <mat-label>questio  n no: {{i+1}}</mat-label>
+                 <input formControlName='answer' matInput>
+                 </mat-form-field>
+             </div>
+           </li>
+         </ul>
+         <div >
+           <button mat-raised-button >Submit</button>
+
+         </div>
+        </form>
+       </div>
+     </div>
+
+      <div *ngIf="!isQuesAvailable" class="displayElse">
+        you have submitted all answers
+      </div>
+    </mat-card>
+
+
+    </div>
+
+
+</div>

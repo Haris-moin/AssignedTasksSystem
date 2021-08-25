@@ -1,0 +1,78 @@
+<!-- <app-create-team></app-create-team> -->
+<div class="create-team">
+  <mat-toolbar class="toolbar">
+    <span >Home</span>
+   <div class="buttons">
+    <button mat-raised-button (click)="openDialog()">Add Team</button>
+   <button mat-raised-button (click)="openCategory()">Add Category</button>
+   <button mat-raised-button (click)="Logout()">Logout</button>
+   </div>
+  </mat-toolbar>
+  <div class="card-container">
+    <!--  -->
+ <div class="employeer-teams">
+   <div>
+     <h2>Teams You Own</h2>
+   </div>
+  <a  (click)="onOwnTeamClick()" [routerLink]="[Team.teamId]" *ngFor="let Team of employerTeams; let i= index;">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{Team.teamName}}</mat-card-title>
+        <mat-card-subtitle>{{Team.teamcategory}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+   </a>
+ </div>
+<div class="employee-teams">
+  <div>
+    <h2>Teams You are  Part</h2>
+  </div>
+  <a (click)="onPartTeamClick()" [routerLink]="[Team.teamId]" *ngFor="let Team of employeeTeams; let i= index;">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{Team.teamName}}</mat-card-title>
+        <mat-card-subtitle>{{Team.teamcategory}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+   </a>
+</div>
+  </div>
+
+</div>
+
+
+  <!-- <form  [formGroup]="createTeamForm" (ngSubmit)="onSubmit()">
+ <div class="form-container">
+
+
+  <div class="team-name">
+    <div class="labels"><label for="">Team name</label></div>
+    <input type="text" formControlName='teamName' id="team-name">
+  </div>
+  <div class="category">
+    <div class="labels"><label for="">Team category</label></div>
+    <input type="text" formControlName='teamcategory'  id="create-category">
+    <select class="category-select" (change)="onSelectCategory($event)">
+      <option value="" >Select your category</option>
+      <option *ngFor="let category of teamCategory" >{{category}}</option>
+    </select>
+  </div>
+  <div class="category-discription">
+    <div class="labels">
+      <label for="">Team Discription</label>
+    </div>
+    <textarea formControlName='description' id="discription" cols="" rows="4"></textarea>
+  </div>
+  <div>
+    <select class="multiselection" multiple formControlName="employee" id="selectedEmployees">
+      <option value="" disabled>Select your category</option>
+      <option *ngFor="let category of teamCategory" >{{category}}</option>
+    </select>
+  </div>
+  <input type="submit" value="Create Team">
+ </div>
+  </form> -->
+
+

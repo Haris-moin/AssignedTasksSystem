@@ -1,0 +1,180 @@
+<div class="setting-tab">
+  <div class="sidebar">
+    <a  [ngClass]="addQuesModde? 'active' : ''" (click)="addQuesionSwitch()">Add Questions</a>
+    <a [ngClass]="editQuesMode? 'active' : ''" (click)="editQuesionSwitch()">Edit Questions</a>
+    <a [ngClass]="addEmpMode ? 'active' : ''" (click)="addEmployeeSwitch()">Add Employees</a>
+
+  </div>
+  <div class="content">
+    <div class="setting-container">
+
+
+
+      <mat-card *ngIf="!addEmpMode" [ngClass]="!addEmpMode ? 'add-edit-section-card' : '' " >
+        <div class="question-add-edit" >
+          <!-- <mat-card class="example-card">
+            <mat-card-header> -->
+             <div class="heading-container">
+               <h2>{{teamName}}</h2>
+               <h4><span>Category:</span>{{teamCategory}}</h4>
+              <!-- <mat-card-title>{{teamName}}</mat-card-title>
+              <mat-card-subtitle>teamcategory</mat-card-subtitle> -->
+             </div>
+            <!-- </mat-card-header> -->
+           <div class="add-form" *ngIf="addQuesModde">
+
+
+             <form [formGroup]="createQuestion">
+              <!-- <mat-card-content *ngIf="!isEditMode" class="quesion-input"> -->
+
+                <div class="add-question">
+                  <h2>Add Question</h2>
+                  <mat-form-field appearance="fill">
+                    <mat-label>question</mat-label>
+                    <input formControlName="quesion" matInput>
+
+                    <mat-hint style="color: red;" *ngIf="createQuestion.get('quesion')?.invalid && createQuestion.get('quesion')?.touched">Question is Required</mat-hint>
+                  </mat-form-field>
+                </div>
+
+                <div>
+                  <button mat-raised-button  (click)="onAdd()">Add Question</button>
+                  <!-- <button mat-raised-button color="primary" (click)="switchMode()">switch to Edit</button> -->
+                </div>
+              <!-- </mat-card-content> -->
+             </form>
+           </div>
+         <form [formGroup]="editQuestion">
+          <div class="edit-from" *ngIf="editQuesMode">
+            <!-- <mat-card-content *ngIf="isEditMode" class="quesion-input"> -->
+              <div  class="edit-question">
+                <h2>Edit Question</h2>
+                <mat-form-field appearance="fill">
+                  <mat-label>question</mat-label>
+                  <input formControlName="editQuestion" matInput>
+
+                  <mat-hint style="color: red;" *ngIf="editQuestion.get('editQuestion')?.invalid && editQuestion.get('editQuestion')?.touched">Team name is Required</mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Edit Quetion</mat-label>
+                  <mat-select formControlName="toEditQuestion">
+                    <mat-option *ngFor="let quesion of ques" [value]="quesion">{{quesion}} </mat-option>
+
+                  </mat-select>
+                  <mat-hint style="color: red;" *ngIf="editQuestion.get('toEditQuestion')?.invalid && editQuestion.get('toEditQuestion')?.touched">Quesion is Required</mat-hint>
+
+                </mat-form-field>
+              </div>
+              <div>
+                <div>
+                  <button mat-raised-button (click)="onEdit()">Edit Question</button>
+                  <!-- <button mat-raised-button color="primary" (click)="switchMode()">switch to Add</button> -->
+                </div>
+              </div>
+            <!-- </mat-card-content> -->
+          </div>
+         </form>
+          <!-- </mat-card> -->
+        </div>
+      </mat-card>
+        <div  class="question-display" *ngIf="!addEmpMode">
+
+          <div class="question-header">
+            <h2>{{teamName}}</h2>
+
+          </div>
+          <div class="questions-list">
+            <h2>Questions</h2>
+            <ul>
+              <li *ngFor="let question of ques">{{question}}</li>
+            </ul>
+          </div>
+          <!-- <mat-card class="example-card">
+            <mat-card-header>
+             <mat-card-title>Team Name</mat-card-title>
+             <div>
+
+             </div>
+
+              <mat-card-subtitle>teamcategory</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <h2>Quesions</h2>
+              <ul>
+                <li *ngFor="let question of ques">{{question}}</li>
+              </ul>
+            </mat-card-content>
+          </mat-card> -->
+        </div>
+
+        <div class="addemployee-mode" *ngIf="addEmpMode">
+          <mat-card class="emp-section-card">
+          <div class="addemp-section">
+            <div class="heading-container">
+              <h2>{{teamName}}</h2>
+              <h4><span>Category:</span>{{teamCategory}}</h4>
+             <!-- <mat-card-title>{{teamName}}</mat-card-title>
+             <mat-card-subtitle>teamcategory</mat-card-subtitle> -->
+            </div>
+            <div class="from-section">
+              <h2>Add Employees</h2>
+              <mat-form-field class="example-chip-list" style="width: 80%;" appearance="fill">
+                <mat-label>Add employees</mat-label>
+                <mat-chip-list #chipList aria-label="Employee selection">
+                  <mat-chip
+                    *ngFor="let employee of employees"
+                    [selectable]="selectable"
+                    [removable]="removable"
+                    (removed)="remove(employee)">
+                    {{employee}}
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                  </mat-chip>
+                  <input
+                    placeholder="New Employee..."
+                    #employeeInput
+                    [formControl]="employeeCtlr"
+                    [matAutocomplete]="auto"
+                    [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                  <mat-option  *ngFor="let emp of filteredEmployees | async" [value]="emp">
+                    {{emp}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+              <button mat-raised-button  (click)="addMoreEmployees()">Add Employees</button>
+
+            </div>
+            <div style="margin-top: 10px;">
+
+                <div>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Set Time</mat-label>
+                    <input formControlName="" matInput>
+
+                    </mat-form-field>
+                  <button mat-raised-button  (click)="setTime()">Set Time</button>
+                </div>
+            </div>
+          </div>
+        </mat-card>
+        <div class="employee-display" >
+          <div>
+            <h2>{{teamName}}</h2>
+          </div>
+          <div class="employee-list">
+            <h2>Employees</h2>
+            <ul>
+              <li *ngFor="let emp of currentTeamEMployees">{{emp}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+

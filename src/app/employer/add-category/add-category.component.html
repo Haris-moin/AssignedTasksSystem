@@ -1,0 +1,16 @@
+
+<div class="form-container">
+<form [formGroup]="createCategory">
+  <h1>Add Category</h1>
+  <mat-form-field appearance="fill">
+    <mat-label>Category Name</mat-label>
+    <input formControlName='categoryName' matInput >
+    <mat-hint style="color: red;" *ngIf="createCategory.get('categoryName')?.invalid && createCategory.get('categoryName')?.touched">Team name is Required</mat-hint>
+
+  </mat-form-field>
+  <div>
+    <button mat-raised-button (click)="onAddCategory()">Add Category</button>
+    <button mat-raised-button (click)="onClose()">Close</button>
+  </div>
+</form>
+</div>

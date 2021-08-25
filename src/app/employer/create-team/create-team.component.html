@@ -1,0 +1,52 @@
+<div class="create-team">
+  <mat-toolbar class="toolbar">
+    <span >Employer</span>
+   <div class="buttons">
+    <button mat-raised-button (click)="openDialog()">Add Team</button>
+   <button mat-raised-button (click)="openCategory()">Add Category</button>
+   </div>
+  </mat-toolbar>
+  <div class="card-container">
+    <mat-card (click)="onTeam()"  *ngFor="let Team of Teams" class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{Team.teamName}}</mat-card-title>
+        <mat-card-subtitle>{{Team.teamcategory}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>
+</div>
+
+
+  <!-- <form  [formGroup]="createTeamForm" (ngSubmit)="onSubmit()">
+ <div class="form-container">
+
+
+  <div class="team-name">
+    <div class="labels"><label for="">Team name</label></div>
+    <input type="text" formControlName='teamName' id="team-name">
+  </div>
+  <div class="category">
+    <div class="labels"><label for="">Team category</label></div>
+    <input type="text" formControlName='teamcategory'  id="create-category">
+    <select class="category-select" (change)="onSelectCategory($event)">
+      <option value="" >Select your category</option>
+      <option *ngFor="let category of teamCategory" >{{category}}</option>
+    </select>
+  </div>
+  <div class="category-discription">
+    <div class="labels">
+      <label for="">Team Discription</label>
+    </div>
+    <textarea formControlName='description' id="discription" cols="" rows="4"></textarea>
+  </div>
+  <div>
+    <select class="multiselection" multiple formControlName="employee" id="selectedEmployees">
+      <option value="" disabled>Select your category</option>
+      <option *ngFor="let category of teamCategory" >{{category}}</option>
+    </select>
+  </div>
+  <input type="submit" value="Create Team">
+ </div>
+  </form> -->
+

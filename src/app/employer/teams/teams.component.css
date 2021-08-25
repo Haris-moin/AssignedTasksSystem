@@ -1,0 +1,67 @@
+.team-container{
+display: flex;
+
+
+}
+
+.team-form{
+  margin: 40px 70px;
+width: 500px;
+}
+.team-tabs{
+  margin: 10px auto;
+  height: 50px;
+  width: 500px;
+  display: flex;
+  justify-content: space-around;
+
+}
+.team-header h2{
+  padding-left: 10px;
+  margin-bottom: 20px;
+  width: 250px;
+  text-align: start;
+  font-size: 26px;
+  color: rgb(80, 76, 76);
+  border-bottom: 1px solid  rgb(94, 154, 233);;
+  font-family:cursive;
+}
+.team-header h4{
+  padding-left: 10px;
+  font-size: 26px;
+  width: 320x;
+  text-align: start;
+  font-family: cursive;
+  color: rgb(80, 76, 76);
+}
+
+.descrip h2{
+  margin-top: 40px;
+  padding-left: 10px;
+  font-size: 20px;
+  width: 320x;
+  text-align: start;
+  color: rgb(80, 76, 76);
+  font-family: cursive;
+  letter-spacing: 1.5px;
+}
+.descrip p{
+  font-size: 16px;
+  font-family: cursive;
+}
+.emp-list ul{
+  font-family:cursive;
+  font-size: 16px;
+list-style:circle;
+
+}
+.emp-list h2{
+  margin-top: 40px;
+  padding-left: 10px;
+  font-size: 20px;
+  width: 320x;
+  text-align: start;
+  color: rgb(80, 76, 76);
+  font-family: cursive;
+  letter-spacing: 1.5px;
+}

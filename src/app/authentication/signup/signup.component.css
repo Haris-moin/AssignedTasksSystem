@@ -1,0 +1,127 @@
+
+
+.container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 400px;
+  background: rgb(250, 248, 248);
+  border-radius: 10px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.container h1{
+  text-align: center;
+  padding: 0 0 10px 0;
+  color: #2691d9;
+  }
+  .signup-type{
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  .container form{
+    padding: 0 40px;
+    box-sizing: border-box;
+  }
+  form .text-field{
+
+    position: relative;
+    border-bottom: 2px solid #2691d9;
+    margin: 16px 0;
+  }
+  .text-field input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background: none;
+  }
+  /* .text-field label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+
+  } */
+/* .text-field span::before{
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #2691d9;
+  transition: .5s;
+} */
+/* .text-field input:focus ~ label,
+.text-field input:valid ~ label{
+top: -5px;
+color: #2691d9;
+} */
+/* .text-field input:focus ~ span::before,
+.text-field input:valid ~ span::before{
+  width: 100%;
+} */
+input[type="submit"]{
+  width: 100%;
+  height: 40px;
+  border: 1px solid;
+  border-radius: 25px;
+  background: #2691d9;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  margin-top: 5px;
+}
+input[type="submit"]:hover{
+  border-color: #2691d9;
+  transition: .5s;
+}
+.signup-link{
+  margin: 30px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #666666;
+}
+.signup-link a{
+  color: #2691d9;
+  text-decoration: none;
+}
+.signup-link a:hover{
+  text-decoration: underline;
+}
+.error-msg-input{
+  color: red;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  font-size: 14px;
+}
+.role-error{
+  font-size: 14px;
+  color: red;
+
+  padding: 1px;
+  width: 200px;
+
+  transition: .5s;
+}
+.exist-user{
+
+  font-size: 10px;
+  color: red;
+
+  padding: 1px;
+  width: 200px;
+
+  transition: .5s;
+}

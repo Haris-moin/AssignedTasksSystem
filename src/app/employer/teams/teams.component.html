@@ -1,0 +1,37 @@
+<div class="team-container">
+  <mat-tab-group style="width: 100%;"  mat-align-tabs="start">
+    <mat-tab *ngIf="!isEmployer" label="Employee">
+      <app-employee></app-employee>
+    </mat-tab>
+           <!-- <mat-tab label="Team">
+       <div class="team-form">
+
+          <div mat-card-avatar class="team-header"></div>
+         <div class="team-header">
+          <h2>{{teamName}}</h2>
+          <h4>{{category}}</h4>
+         </div>
+
+         <div class="descrip">
+          <h2>description:</h2>
+          <p>{{descrip}}</p>
+         </div>
+
+         <div class="emp-list">
+          <h2>Employees</h2>
+          <ul>
+            <li  *ngFor="let emp of teamEmployees">{{emp}}</li>
+
+          </ul>
+         </div>
+
+    </div></mat-tab> -->
+    <mat-tab *ngIf="isEmployer" label="Settings"><app-settings></app-settings></mat-tab>
+    <mat-tab *ngIf="isEmployer" label="Reports"><app-reports></app-reports></mat-tab>
+
+  </mat-tab-group>
+  <!-- <div class="team-tabs">
+    <button mat-raised-button >Reports</button>
+  <button mat-raised-button (click)="onSettings()">Settings</button>
+  </div> -->
+</div>

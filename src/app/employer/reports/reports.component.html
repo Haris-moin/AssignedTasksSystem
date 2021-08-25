@@ -1,0 +1,65 @@
+
+<div class="report-secreen">
+<div class="report-container">
+
+  <div class="report-filter-form">
+    <form [formGroup]="filterForm" >
+
+     <div class="before-filter">
+      <div class="filters">
+        <div class="inputs-container">
+          <mat-form-field class="input-Dropdown" appearance="fill">
+            <mat-label>All Members</mat-label>
+            <mat-select  formControlName="emp" >
+              <mat-option *ngFor="let employee of currentTeamEmployees" [value]="employee">{{employee}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div>
+            <mat-hint style="color: red;" *ngIf="filterForm.get('emp')?.invalid && filterForm.get('emp')?.touched">Employee Required</mat-hint>
+
+          </div>
+        </div>
+        <div>
+          <mat-form-field appearance="fill" class="date-field">
+            <mat-label>Choose a date</mat-label>
+            <input formControlName="date" matInput [matDatepicker]="datepicker" >
+            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker>
+              <mat-datepicker-actions>
+                <button mat-button matDatepickerCancel>Cancel</button>
+                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+              </mat-datepicker-actions>
+            </mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="filter-button">
+          <button mat-raised-button color="primary" (click)="displayEmployeeAnswers()">Search</button>
+
+        </div>
+      </div>
+     </div>
+
+    </form>
+  </div>
+
+  <div class="answer-display-section">
+    <ul  *ngFor="let emp of allMemberAns">
+      <li>
+        <div class="emp-name">{{emp.name}} ,{{dateLabel}}</div>
+       <mat-card>
+        <div class="ques-ans">
+          <ul *ngFor="let empAnswer of emp.answers">
+            <li class="ques-ans-list">
+              <div>
+               Question: <span class="emp-ques-ans">{{empAnswer.que}}</span>
+              </div>
+              <div>Answer:<span class="emp-ques-ans">{{empAnswer.ans}}</span></div>
+            </li>
+          </ul>
+        </div>
+       </mat-card>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>

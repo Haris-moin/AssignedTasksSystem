@@ -1,0 +1,49 @@
+
+.filters{
+  background-color: rgb(124, 193, 221);
+  Padding-top: 20px;
+  margin-bottom: 5px;
+ border-bottom: 2px solid royalblue;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.input-Dropdown,.date-field{
+margin-right: 20px;
+width: 200px;
+}
+.filter-button{
+margin-right: 20px;
+margin-top: 10px;
+}
+.answer-display-section{
+
+ width: 65%;
+  display: block
+
+}
+.emp-ques-ans{
+  font-family: cursive;
+  margin: 0 10px;
+  font-size: 20px;
+
+}
+.ques-ans-list{
+  margin-right: 20px;
+  border-bottom: 1px solid #a0a3a7;
+  padding: 16px;
+}
+ul{
+  list-style: none;
+}
+.emp-name{
+  font-family: cursive;
+  list-style: none;
+  font-size: 22px;
+  color: rgb(70, 69, 69);
+  margin: 20px 0;
+}
+mat-card{
+  padding: 0;
+   border: 1px solid royalblue;
+}

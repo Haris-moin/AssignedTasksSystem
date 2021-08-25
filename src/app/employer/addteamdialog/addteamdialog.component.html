@@ -1,0 +1,72 @@
+
+<form [formGroup]="createTeamForm">
+  <div class="form-container">
+    <div class="form-heading">
+      <h2>Create Team</h2>
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Team Name</mat-label>
+      <input formControlName='teamName' matInput>
+
+      <mat-hint style="color: red;" *ngIf="createTeamForm.get('teamName')?.invalid && createTeamForm.get('teamName')?.touched">Team name is Required</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Select Category</mat-label>
+      <mat-select  formControlName='teamcategory'>
+        <mat-option *ngFor="let category of categoryArray" [value]="category">{{category}}</mat-option>
+      </mat-select>
+
+      <mat-hint style="color: red;" *ngIf="createTeamForm.get('teamcategory')?.invalid && createTeamForm.get('teamcategory')?.touched">Team name is Required</mat-hint>
+
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Discription</mat-label>
+      <textarea formControlName='description' matInput></textarea>
+
+      <mat-hint style="color: red;" *ngIf="createTeamForm.get('description')?.invalid && createTeamForm.get('description')?.touched">Team name is Required</mat-hint>
+
+    </mat-form-field>
+    <div>
+      <mat-form-field class="example-chip-list" style="width: 100%;" appearance="fill">
+        <mat-label>Add employees</mat-label>
+        <mat-chip-list #chipList aria-label="Fruit selection">
+          <mat-chip
+            *ngFor="let employee of employees"
+            [selectable]="selectable"
+            [removable]="removable"
+            (removed)="remove(employee)">
+            {{employee}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input
+            placeholder="New Employee..."
+            #employeeInput
+            [formControl]="employeeCtlr"
+            [matAutocomplete]="auto"
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+          <mat-option style="height: 50px;" *ngFor="let emp of filteredEmployees | async" [value]="emp">
+            {{emp}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+    </div>
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Add members</mat-label>
+      <mat-select formControlName="employees" multiple>
+        <mat-option *ngFor="let employee of EmployeesArray" [value]="employee">{{employee}} </mat-option>
+
+      </mat-select>
+      <mat-hint style="color: red;" *ngIf="createTeamForm.get('employees')?.invalid && createTeamForm.get('employees')?.touched">Team name is Required</mat-hint>
+
+    </mat-form-field> -->
+    <div>
+
+      <button mat-raised-button (click)="onSubmit()">Add Team</button>
+    </div>
+  </div>
+</form>

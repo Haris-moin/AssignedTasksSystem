@@ -1,0 +1,22 @@
+.form-container{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 2px 14px;
+}
+input{
+  margin-bottom: 10px;
+
+}
+.form-heading{
+  color: #2691d9;
+  text-align: center;
+  margin: 10px;
+}
+button{
+  background-color:  #2691d9;
+  color: white;
+  margin: 5px;
+}
+
+

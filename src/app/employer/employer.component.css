@@ -1,0 +1,39 @@
+
+ .toolbar{
+  background-color:rgb(101, 187, 221);
+  color: white;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 40px;
+  display: flex;
+justify-content: space-between;
+}
+.buttons button{
+  margin: 10px;
+}
+.card-container{
+  margin:10px 40px ;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+
+}
+.card-container a{
+  text-decoration: none;
+
+
+}
+mat-card{
+
+  height: 40px;
+  border: 2px inset rgb(146, 174, 255);
+  margin: 20px 0;
+  cursor: pointer;
+}
+h2{
+  width: 250px;
+  text-align: start;
+  font-size: 26px;
+  color: rgb(80, 76, 76);
+  border-bottom: 1px solid  rgb(94, 154, 233);;
+  font-family:cursive;
+}
